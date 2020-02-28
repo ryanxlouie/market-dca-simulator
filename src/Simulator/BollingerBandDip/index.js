@@ -6,6 +6,7 @@ class BollingerBandDip extends Component {
   }
 
   render() {
+    // console.log(yargs.argv)
     return (
       <div className="flex-container">
         BBand Dip
