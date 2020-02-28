@@ -24,3 +24,4 @@ yarn-error.log*
 
 # config files
 /src/lib/keys.js
+/src/lib/mocks
