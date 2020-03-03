@@ -21,5 +21,9 @@ export default function simpleBuy(initialBalance, balanceIncrease, triggerDates,
     }
   }
 
-  return (buyTab)
+  return {
+    buyTab,
+    balance,
+    triggerDates,
+  }
 }

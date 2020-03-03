@@ -5,20 +5,18 @@ import HighchartsReact from 'highcharts-react-official';
 const LineChart = (props) => {
   const {
     dailyData,
-    simulationResults,
+    triggerDates
   } = props;
   
   let xAxis = dailyData.map(a => a['date']);
 
   let xAxisPlotLines = [];
-  if (simulationResults.hasOwnProperty('triggerDates')) {
-    for (let a = 0; a < simulationResults['triggerDates'].length; a += 1) {
-      xAxisPlotLines.push({
-        color: '#FF0000',
-        width: 2,
-        value: xAxis.indexOf(simulationResults['triggerDates'][a])
-      });
-    }
+  for (let a = 0; a < triggerDates.length; a += 1) {
+    xAxisPlotLines.push({
+      color: '#FF0000',
+      width: 2,
+      value: xAxis.indexOf(triggerDates[a])
+    });
   }
 
   const options = {

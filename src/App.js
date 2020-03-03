@@ -43,36 +43,6 @@ function App() {
             />
             <Redirect from="/" to="/HomePage" />
           </Switch>
-          <div className="flex-container" style={{height: '1000px'}}>
-            <div className="flex-row">
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-            </div>
-            <div className="flex-row">
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-              <div className="flex-col">
-                Hello
-              </div>
-            </div>
-          </div>
         </div>
       </HashRouter>
     </div>

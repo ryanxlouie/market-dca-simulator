@@ -11,7 +11,7 @@ import dailyRoutes from '../../routes/dailyRoutes';
 import technicalRoutes from '../../routes/technicalRoutes';
 
 // Regular style sheet
-import { H2, Button, Card } from "@blueprintjs/core";
+import { H2, Button, Card, Callout } from "@blueprintjs/core";
 
 // Components
 import LineChart from './components/LineChart';
@@ -51,9 +51,9 @@ class BollingerBandDip extends Component {
       }
     }
 
-    simulationResults.triggerDates = triggerDates;
-    simulationResults.simpleBuyTab = simpleBuy(1000, 1000, basicTriggerDates, dailyData);
-    simulationResults.buyTab = simpleBuy(1000, 1000, triggerDates, dailyData);
+    simulationResults.simpleBuyResults = simpleBuy(1000, 1000, basicTriggerDates, dailyData);
+    simulationResults.bbandDipResults = simpleBuy(1000, 1000, triggerDates, dailyData);
+    simulationResults.neverBuyResults = simpleBuy(1000, 1000, [], dailyData);
 
     this.setState({
       simulationResults: simulationResults,
@@ -93,7 +93,7 @@ class BollingerBandDip extends Component {
           <div className="flex-col">
             <LineChart
               dailyData={dailyData}
-              simulationResults={simulationResults}
+              triggerDates={(simulationResults.hasOwnProperty('bbandDipResults')) ? simulationResults.bbandDipResults.triggerDates : []}
             />
           </div>
         </div>
@@ -108,9 +108,19 @@ class BollingerBandDip extends Component {
             </Card>
           </div>
           <div className="flex-col-4">
-            <ResultCard
-              simulationResults={simulationResults}
-            />
+            {(Object.keys(simulationResults).length === 0) ?
+              <Card>
+                <Callout
+                  intent="primary"
+                  title="Use the settings on the left to start a simulation."
+                />
+              </Card>
+              :
+              <ResultCard
+                dailyDataObject={dailyData[dailyData.length-1]}
+                simulationResults={simulationResults}
+              />
+            }
           </div>
         </div>
       </div>
