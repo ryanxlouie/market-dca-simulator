@@ -3,7 +3,7 @@ import config from '../lib/config';
 import keys from '../lib/keys';
 import getDailyDataQQQ from '../lib/mocks/getDailyDataQQQ.json';
 
-export async function getDailyData(ticker) {
+export async function getDailyData(ticker, startDate) {
   let result;
 
   if (config.routeSettings === 'Mock') {
@@ -26,16 +26,20 @@ export async function getDailyData(ticker) {
     let tempProp = prop.split('-');
     let tempDate = new Date(`${tempProp[1]}/${tempProp[2]}/${tempProp[0]}`);
 
+    let readableDate = `${tempDate.getMonth()+1}/${tempDate.getDate()}/${tempDate.getFullYear()}`;
     dailyArray.push({
-      date: `${tempDate.getMonth()+1}/${tempDate.getDate()}/${tempDate.getFullYear()}`,
+      date: readableDate,
       open: parseFloat(result[prop]['1. open']),
       high: parseFloat(result[prop]['2. high']),
       low: parseFloat(result[prop]['3. low']),
       close: parseFloat(result[prop]['4. close']),
       volume: parseFloat(result[prop]['5. volume']),
     });
+    if (readableDate === startDate) {
+      break;
+    }
   }
-
+  dailyArray.reverse()
   return (dailyArray);
 }
 
