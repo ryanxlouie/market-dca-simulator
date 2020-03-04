@@ -66,7 +66,7 @@ class BollingerBandDip extends Component {
       technicalRoutes.getBollingerBandData('QQQ', '1/2/2015'),
     ])
       .then(result => {
-        let  {returnOne, returnTwo } = arrayLineup(result[0], result[1]);
+        let {returnOne, returnTwo } = arrayLineup(result[0], result[1]);
         this.setState({
           apiFinished: true,
           dailyData: returnOne,

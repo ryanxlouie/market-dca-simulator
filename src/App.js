@@ -13,6 +13,7 @@ import { Alignment, Classes, Button, Navbar, NavbarGroup } from "@blueprintjs/co
 // Components
 import HomePage from './Simulator/HomePage';
 import BollingerBandDip from './Simulator/BollingerBandDip';
+import ResidualStrengthIndex from './Simulator/ResidualStrengthIndex';
 
 function App() {
   return (
@@ -39,6 +40,12 @@ function App() {
               path="/BollingerBandDip"
               render={props => 
                 <BollingerBandDip />
+              }
+            />
+            <Route
+              path="/ResidualStrengthIndex"
+              render={props => 
+                <ResidualStrengthIndex />
               }
             />
             <Redirect from="/" to="/HomePage" />

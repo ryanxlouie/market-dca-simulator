@@ -29,7 +29,15 @@ class HomePage extends Component {
               <p>Look for red candles dipping below the Bollinger Band, with a green going into it the next day.</p>
             </Card>
           </div>
-          <div className="flex-col"></div>
+          <div className="flex-col">
+            <Card 
+              interactive={true} 
+              elevation={Elevation.TWO} 
+              onClick={() => this.changePage('/ResidualStrengthIndex')}
+            >
+              <H4>Residual Strength Index</H4>
+            </Card>
+          </div>
           <div className="flex-col"></div>
         </div>
       </div>

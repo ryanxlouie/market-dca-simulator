@@ -36,3 +36,8 @@
   width: 100%;
   padding: 5px;
 }
+
+/* Blueprint Edits */
+.bp3-tab-panel {
+  margin-top: 5px;
+}

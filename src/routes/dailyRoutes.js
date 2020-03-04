@@ -11,7 +11,7 @@ export async function getDailyData(ticker, startDate) {
     result = res['Time Series (Daily)'];
   }
   else {
-    let res = await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=${keys.avKey}`);
+    let res = await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&outputsize=full&apikey=${keys.avKey}`);
   
     // If exceed max calls return
     if (res.data.hasOwnProperty('Note')) {
