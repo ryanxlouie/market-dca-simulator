@@ -14,6 +14,7 @@ import { Alignment, Classes, Button, Navbar, NavbarGroup } from "@blueprintjs/co
 import HomePage from './Simulator/HomePage';
 import BollingerBandDip from './Simulator/BollingerBandDip';
 import ResidualStrengthIndex from './Simulator/ResidualStrengthIndex';
+import TQQQExperiment from './Simulator/TQQQExperiment';
 
 function App() {
   return (
@@ -46,6 +47,12 @@ function App() {
               path="/ResidualStrengthIndex"
               render={props => 
                 <ResidualStrengthIndex />
+              }
+            />
+            <Route
+              path="/TQQQExperiment"
+              render={props => 
+                <TQQQExperiment />
               }
             />
             <Redirect from="/" to="/HomePage" />

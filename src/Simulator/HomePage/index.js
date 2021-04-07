@@ -26,7 +26,6 @@ class HomePage extends Component {
               onClick={() => this.changePage('/BollingerBandDip')}
             >
               <H4>Bollinger Band Dip</H4>
-              <p>Look for red candles dipping below the Bollinger Band, with a green going into it the next day.</p>
             </Card>
           </div>
           <div className="flex-col">
@@ -38,7 +37,15 @@ class HomePage extends Component {
               <H4>Residual Strength Index</H4>
             </Card>
           </div>
-          <div className="flex-col"></div>
+          <div className="flex-col">
+            <Card 
+              interactive={true} 
+              elevation={Elevation.TWO} 
+              onClick={() => this.changePage('/TQQQExperiment')}
+            >
+              <H4>TQQQ Experiment</H4>
+            </Card>
+          </div>
         </div>
       </div>
     )
